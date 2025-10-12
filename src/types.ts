@@ -1,4 +1,4 @@
-export interface UserAgentInfo {
+export type LuxInfo = {
     browser: NameVersion;
     os: NameVersion;
     deviceType: DeviceType;
@@ -8,20 +8,20 @@ export interface UserAgentInfo {
     source: string;
 }
 
-export interface NameVersion {
+export type NameVersion = {
     name: string;
     version: string | null;
 }
 
-export type DeviceType = 'Mobile' | 'Tablet' | 'Desktop';
+export type DeviceType = 'Mobile' | 'Tablet' | 'Desktop' | 'unknown';
 
-export interface UserAgentData {
-    brands: UserAgentDataBrand[];
+export type UserAgentData = {
     mobile: boolean;
     platform: string;
+    brands: UserAgentDataBrand[];
 }
 
-export interface UserAgentDataBrand {
+export type UserAgentDataBrand = {
     brand: string;
     version: string;
 }

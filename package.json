@@ -1,0 +1,53 @@
+{
+  "name": "@xafans/lux",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "A small lib to extract actual device data from browser.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "vitest",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "jsdom": "^27.0.0",
+    "vitest": "^2.0.0",
+    "typescript": "^5.9.2"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "author": "Xafans",
+  "keywords": [
+    "lux",
+    "user-agent",
+    "device-detection",
+    "ua-parser",
+    "browser-detection",
+    "device-info",
+    "user-agent-parser",
+    "device-type",
+    "client-info",
+    "client-detection",
+    "device-identification",
+    "user-agent-analysis",
+    "device-characteristics",
+    "browser-info",
+    "device-specs",
+    "user-agent-details",
+    "device-profile",
+    "user-agent-data",
+    "device-insights"
+  ],
+  "homepage": "https://github.com/xafans/lux#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xafans/lux.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xafans/lux/issues"
+  }
+}

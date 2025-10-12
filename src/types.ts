@@ -13,7 +13,7 @@ export type NameVersion = {
     version: string | null;
 }
 
-export type DeviceType = 'Mobile' | 'Tablet' | 'Desktop' | 'unknown';
+export type DeviceType = 'Mobile' | 'Tablet' | 'Desktop' | 'Unknown';
 
 export type UserAgentData = {
     mobile: boolean;

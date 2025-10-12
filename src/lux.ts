@@ -32,12 +32,12 @@ export class Lux {
     }
 
     public static UNKNOWN: LuxInfo = {
-        browser: { name: 'unknown', version: 'unknown' },
-        os: { name: 'unknown', version: 'unknown' },
-        deviceType: 'unknown',
-        engine: 'unknown',
-        userAgent: 'unknown',
-        platform: 'unknown',
-        source: 'unknown',
+        browser: { name: 'Unknown', version: 'Unknown' },
+        os: { name: 'Unknown', version: 'Unknown' },
+        deviceType: 'Unknown',
+        engine: 'Unknown',
+        userAgent: 'Unknown',
+        platform: 'Unknown',
+        source: 'Unknown',
     };
 }

@@ -31,8 +31,6 @@ export class UserAgentDataLux {
             source: 'userAgentData'
         };
     }
-
-
 }
 
 function findBrand(brands: UserAgentDataBrand[]): UserAgentDataBrand {

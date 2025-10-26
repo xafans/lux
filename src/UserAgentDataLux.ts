@@ -1,34 +1,38 @@
-import { LuxInfo, NameVersion, UserAgentDataBrand } from './types';
+import { Lum, NameVersion, UserAgentDataBrand } from './types';
 
 // Chromium only (not on iOS Safari)
-export function extractFromUserAgentData(): LuxInfo | null {
-    const userAgentData = navigator.userAgentData || null;
-    if (!userAgentData) return null;
+export class UserAgentDataLux {
+    static lum(): Lum | null {
+        const userAgentData = navigator.userAgentData || null;
+        if (!userAgentData) return null;
 
-    // browser name/version from brand (but fine for majors)
-    let brand = findBrand(userAgentData.brands || []);
-    const browser = { name: formatBrandName(brand?.brand || ''), version: brand?.version || null };
+        // browser name/version from brand (but fine for majors)
+        let brand = findBrand(userAgentData.brands || []);
+        const browser = { name: formatBrandName(brand?.brand || ''), version: brand?.version || null };
 
-    // OS & device
-    const platform = userAgentData.platform || '';
-    const os = extractOsFromPlatform(platform);
-    const deviceType = userAgentData.mobile ? 'Mobile' : findDeviceTypeFromOs(os.name);
-    const engine = browser.name === 'Firefox'
-        ? 'Gecko'
-        : browser.name === 'Safari'
-            ? 'WebKit'
-            : 'Blink'; // Chromium family default
-    const userAgent = navigator.userAgent || '';
+        // OS & device
+        const platform = userAgentData.platform || '';
+        const os = extractOsFromPlatform(platform);
+        const deviceType = userAgentData.mobile ? 'Mobile' : findDeviceTypeFromOs(os.name);
+        const engine = browser.name === 'Firefox'
+            ? 'Gecko'
+            : browser.name === 'Safari'
+                ? 'WebKit'
+                : 'Blink'; // Chromium family default
+        const userAgent = navigator.userAgent || '';
 
-    return {
-        browser,
-        os,
-        deviceType,
-        engine,
-        userAgent,
-        platform,
-        source: 'userAgentData'
-    };
+        return {
+            browser,
+            os,
+            deviceType,
+            engine,
+            userAgent,
+            platform,
+            source: 'userAgentData'
+        };
+    }
+
+
 }
 
 function findBrand(brands: UserAgentDataBrand[]): UserAgentDataBrand {

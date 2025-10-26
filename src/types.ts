@@ -1,4 +1,4 @@
-export type LuxInfo = {
+export type Lum = {
     browser: NameVersion;
     os: NameVersion;
     deviceType: DeviceType;

@@ -1,6 +1,6 @@
-import { extractFromUserAgent } from './fromUserAgent';
-import { extractFromUserAgentData } from './fromUserAgentData';
-import { LuxInfo } from './types';
+import { UserAgentLux } from 'UserAgentLux';
+import { Lum } from './types';
+import { UserAgentDataLux } from 'UserAgentDataLux';
 
 /** 
  * Extracts browser, OS, device type, engine, and user agent information.
@@ -11,16 +11,18 @@ export class Lux {
      * @param userAgentString Optional user agent string to parse. If not provided, will use navigator.userAgentData or navigator.userAgent.
      * @returns LuxInfo object with parsed information.
      */
-    static extract(userAgentString?: string): LuxInfo {
+    static lum(userAgentString?: string): Lum {
         if (!navigator) return this.UNKNOWN;
 
         // 1) if userAgentString is not provided, navigator.userAgentData first (on Chromium browsers)
-        let result = !userAgentString && extractFromUserAgentData();
+        let result = !userAgentString && UserAgentDataLux.lum();
 
         // 2) fallback to navigator.userAgent
         if (!result) {
-            result = extractFromUserAgent(userAgentString || navigator.userAgent);
+            result = UserAgentLux.lum(userAgentString || navigator.userAgent);
         }
+
+        if (!result) return this.UNKNOWN;
 
         // prefer Brave API
         const brave = !!(navigator as any).brave;
@@ -28,10 +30,10 @@ export class Lux {
             result.browser.name = 'Brave';
         }
 
-        return result || this.UNKNOWN;
+        return result;
     }
 
-    public static UNKNOWN: LuxInfo = {
+    public static UNKNOWN: Lum = {
         browser: { name: 'Unknown', version: 'Unknown' },
         os: { name: 'Unknown', version: 'Unknown' },
         deviceType: 'Unknown',

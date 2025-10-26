@@ -47,14 +47,14 @@ export class UserAgentLux {
             os.version = m ? m[1] : null;
         } else if (/\biPhone|iPad|iPod\b/i.test(userAgent)) {
             os.name = 'iOS';
-            const m = userAgent.match(/OS (\d+[_\.\d]*)/i);
+            const m = userAgent.match(/OS (\d+[_.\d]*)/i);
             os.version = m ? m[1].replace(/_/g, '.') : null;
         } else if (isIPadOS13Plus) {
             os.name = 'iOS';
             os.version = null;
         } else if (/\bMac OS X\b/.test(userAgent)) {
             os.name = 'macOS';
-            const m = userAgent.match(/Mac OS X (\d+[_\.\d]*)/);
+            const m = userAgent.match(/Mac OS X (\d+[_.\d]*)/);
             os.version = m ? m[1].replace(/_/g, '.') : null;
         } else if (/\bCrOS\b/.test(userAgent)) {
             os.name = 'Chrome OS';

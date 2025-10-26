@@ -7,7 +7,7 @@ export class UserAgentDataLux {
         if (!userAgentData) return null;
 
         // browser name/version from brand (but fine for majors)
-        let brand = findBrand(userAgentData.brands || []);
+        const brand = findBrand(userAgentData.brands || []);
         const browser = { name: formatBrandName(brand?.brand || ''), version: brand?.version || null };
 
         // OS & device

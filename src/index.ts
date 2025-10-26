@@ -1,4 +1,4 @@
-import { Lux } from './Lux2';
+import { Lux } from './Lux';
 
 export * from './types';
 

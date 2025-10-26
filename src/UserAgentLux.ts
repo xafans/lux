@@ -1,4 +1,4 @@
-import { NameVersion, Lum } from './types';
+import { Lum, NameVersion } from './types';
 
 export class UserAgentLux {
     static lum(userAgent: string): Lum | null {

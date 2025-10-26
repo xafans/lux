@@ -1,6 +1,6 @@
-import { UserAgentLux } from './UserAgentLux';
 import { Lum } from './types';
 import { UserAgentDataLux } from './UserAgentDataLux';
+import { UserAgentLux } from './UserAgentLux';
 
 /** 
  * Extracts browser, OS, device type, engine, and user agent information.

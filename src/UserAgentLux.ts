@@ -11,7 +11,7 @@ export class UserAgentLux {
             { name: 'Samsung Internet', re: /SamsungBrowser\/([\d.]+)/ },
             { name: 'Firefox', re: /(?:Firefox|FxiOS)\/([\d.]+)/ },
             { name: 'Chrome', re: /(?:Chrome|CriOS)\/([\d.]+)/ },
-            { name: 'Safari', re: /Version\/([\d.]+).*Safari/ }
+            { name: 'Safari', re: /Version\/([\d.]+).*Safari/ },
         ];
         for (const r of rules) {
             const m = userAgent.match(r.re);
@@ -95,6 +95,7 @@ export class UserAgentLux {
 }
 
 const WINDOWS_VERSIONS_MAP: Record<string, string> = {
+    '11.0': '11',
     '10.0': '10/11',
     '6.3': '8.1',
     '6.2': '8',

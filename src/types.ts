@@ -25,3 +25,7 @@ export type UserAgentDataBrand = {
     brand: string;
     version: string;
 }
+
+export interface BraveNavigator extends Navigator {
+    brave: object;
+}

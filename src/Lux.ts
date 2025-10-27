@@ -1,4 +1,4 @@
-import { Lum } from './types';
+import { BraveNavigator, Lum } from './types';
 import { UserAgentDataLux } from './UserAgentDataLux';
 import { UserAgentLux } from './UserAgentLux';
 
@@ -25,7 +25,7 @@ export class Lux {
         if (!result) return this.UNKNOWN;
 
         // prefer Brave API
-        const brave = !!(navigator as any).brave;
+        const brave = !!(navigator as BraveNavigator).brave;
         if (brave && result.browser.name === 'Chrome') {
             result.browser.name = 'Brave';
         }

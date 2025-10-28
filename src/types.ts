@@ -1,7 +1,7 @@
 export type Lum = {
     browser: NameVersion;
     os: NameVersion;
-    deviceType: DeviceType;
+    deviceType: string;
     engine: string;
     userAgent: string;
     platform: string;
@@ -10,10 +10,8 @@ export type Lum = {
 
 export type NameVersion = {
     name: string;
-    version: string | null;
+    version: string;
 }
-
-export type DeviceType = 'Mobile' | 'Tablet' | 'Desktop' | 'Unknown';
 
 export type UserAgentData = {
     mobile: boolean;

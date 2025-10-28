@@ -12,7 +12,7 @@ export class Lux {
      * @returns A Lum object with extracted information.
      */
     static lum(userAgentString?: string): Lum {
-        if (!navigator) return this.UNKNOWN;
+        if (!navigator) return this.UNKNOWN_LUM;
 
         // 1) if userAgentString is not provided, navigator.userAgentData first (on Chromium browsers)
         let result = !userAgentString && UserAgentDataLux.lum();
@@ -22,7 +22,7 @@ export class Lux {
             result = UserAgentLux.lum(userAgentString || navigator.userAgent);
         }
 
-        if (!result) return this.UNKNOWN;
+        if (!result) return this.UNKNOWN_LUM;
 
         // prefer Brave API
         const brave = !!(navigator as BraveNavigator).brave;
@@ -33,13 +33,15 @@ export class Lux {
         return result;
     }
 
-    public static UNKNOWN: Lum = {
-        browser: { name: 'Unknown', version: 'Unknown' },
-        os: { name: 'Unknown', version: 'Unknown' },
-        deviceType: 'Unknown',
-        engine: 'Unknown',
-        userAgent: 'Unknown',
-        platform: 'Unknown',
-        source: 'Unknown',
+    public static UNKNOWN = 'Unknown';
+
+    public static UNKNOWN_LUM: Lum = {
+        browser: { name: Lux.UNKNOWN, version: Lux.UNKNOWN },
+        os: { name: Lux.UNKNOWN, version: Lux.UNKNOWN },
+        deviceType: Lux.UNKNOWN,
+        engine: Lux.UNKNOWN,
+        userAgent: Lux.UNKNOWN,
+        platform: Lux.UNKNOWN,
+        source: Lux.UNKNOWN,
     };
 }

@@ -8,7 +8,7 @@ export class UserAgentDataLux {
 
         // browser name/version from brand (but fine for majors)
         const brand = findBrand(userAgentData.brands || []);
-        const browser = { name: formatBrandName(brand?.brand || ''), version: brand?.version || null };
+        const browser = { name: formatBrandName(brand?.brand || ''), version: brand?.version || 'Unknown' };
 
         // OS & device
         const platform = userAgentData.platform || '';
@@ -53,14 +53,14 @@ function formatBrandName(name: string): string {
 
 function extractOsFromPlatform(platform: string): NameVersion {
     switch ((platform || '').toLowerCase()) {
-        case "windows": return { name: "Windows", version: null };
-        case "macos": return { name: "macOS", version: null };
-        case "android": return { name: "Android", version: null };
-        case "ios": return { name: "iOS", version: null };
+        case "windows": return { name: "Windows", version: 'Unknown' };
+        case "macos": return { name: "macOS", version: 'Unknown' };
+        case "android": return { name: "Android", version: 'Unknown' };
+        case "ios": return { name: "iOS", version: 'Unknown' };
         case "chrome os":
-        case "chromeos": return { name: "Chrome OS", version: null };
-        case "linux": return { name: "Linux", version: null };
-        default: return { name: platform || "Unknown", version: null };
+        case "chromeos": return { name: "Chrome OS", version: 'Unknown' };
+        case "linux": return { name: "Linux", version: 'Unknown' };
+        default: return { name: platform || "Unknown", version: 'Unknown' };
     }
 }
 
